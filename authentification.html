@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - StadeFoot</title>
+    <link rel="stylesheet" href="authentification.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="football">⚽</div>
+        <div class="football">🏟️</div>
+        <div class="football">⚽</div>
+        <div class="football">🎫</div>
+        <div class="football">⚽</div>
+        <div class="football">🏆</div>
+    </div>
+
+    <div class="auth-container">
+        <div class="auth-header">
+            <div class="logo">⚽</div>
+            <h1 class="auth-title">StadeFoot</h1>
+            <p class="auth-subtitle">Connectez-vous pour réserver vos places</p>
+        </div>
+
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="login">Connexion</button>
+            <button class="tab-btn" data-tab="register">Inscription</button>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <!-- Login Form -->
+        <form class="auth-form active" id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <div class="input-wrapper">
+                    <input type="email" id="loginEmail" name="email" required placeholder="votre@email.com">
+                    <div class="input-icon">📧</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Mot de passe</label>
+                <div class="input-wrapper">
+                    <input type="password" id="loginPassword" name="password" required placeholder="••••••••">
+                    <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">👁️</button>
+                </div>
+            </div>
+
+            <div class="form-extras">
+                <label class="remember-me">
+                    <input type="checkbox" name="remember">
+                    <span>Se souvenir de moi</span>
+                </label>
+                <a href="#" class="forgot-password" onclick="showForgotPassword()">Mot de passe oublié ?</a>
+            </div>
+
+            <button type="submit" class="btn">Se connecter</button>
+
+            <div class="social-login">
+                <div class="social-title">Ou connectez-vous avec</div>
+                <div class="social-buttons">
+                    <a href="#" class="social-btn google" onclick="socialLogin('google')">G</a>
+                    <a href="#" class="social-btn facebook" onclick="socialLogin('facebook')">f</a>
+                    <a href="#" class="social-btn twitter" onclick="socialLogin('twitter')">🐦</a>
+                </div>
+            </div>
+        </form>
+
+        <!-- Register Form -->
+        <form class="auth-form" id="registerForm">
+            <div class="user-type-selection" style="display: flex;justify-content: center;align-items: center;">
+                <div class="user-type-card" data-type="client">
+                    <div class="user-type-icon">👤</div>
+                    <div class="user-type-title">Client</div>
+                    <div class="user-type-desc">Réserver des billets</div>
+                </div>
+                 
+            </div>
+
+            <div class="form-group">
+                <label for="registerName">Nom complet</label>
+                <div class="input-wrapper">
+                    <input type="text" id="registerName" name="name" required placeholder="Jean Dupont">
+                    <div class="input-icon">👤</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <div class="input-wrapper">
+                    <input type="email" id="registerEmail" name="email" required placeholder="votre@email.com">
+                    <div class="input-icon">📧</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="registerPhone">Téléphone</label>
+                <div class="input-wrapper">
+                    <input type="tel" id="registerPhone" name="phone" required placeholder="+33 6 12 34 56 78">
+                    <div class="input-icon">📱</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="registerPassword">Mot de passe</label>
+                <div class="input-wrapper">
+                    <input type="password" id="registerPassword" name="password" required placeholder="••••••••">
+                    <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">👁️</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirmer le mot de passe</label>
+                <div class="input-wrapper">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="••••••••">
+                    <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</button>
+                </div>
+            </div>
+
+            <div class="form-extras">
+                <label class="remember-me">
+                    <input type="checkbox" name="terms" required>
+                    <span>J'accepte les <a href="#" style="color: #3498db;">conditions d'utilisation</a></span>
+                </label>
+            </div>
+
+            <button type="submit" class="btn">Créer mon compte</button>
+
+            <div class="social-login">
+                <div class="social-title">Ou inscrivez-vous avec</div>
+                <div class="social-buttons">
+                    <a href="#" class="social-btn google" onclick="socialLogin('google')">G</a>
+                    <a href="#" class="social-btn facebook" onclick="socialLogin('facebook')">f</a>
+                    <a href="#" class="social-btn twitter" onclick="socialLogin('twitter')">🐦</a>
+                </div>
+            </div>
+        </form>
+
+        <div class="auth-footer">
+            <a href="#" onclick="goToBooking()">← Retour à la réservation</a>
+            <a href="#">Aide</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+     <script src="apiService.js">
+      
+    </script>
+    <script src="authentification.js">
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StadeFoot - Réservation de Billets</title>
+    <link rel = "stylesheet" href="main.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AZ0umykq2gFZzEOXMzppCB1F9cVLoOfp42an54erNVw7vn_TlcEAoigAqjyKYVWuT4ZFGpIzj1G1MSgW&currency=EUR"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚽ StadeFoot</h1>
+            <p class="subtitle">Réservez vos places pour les meilleurs matchs</p>
+            <div id="userArea" class="user-area"></div>
+
+        </header>
+
+        <div class="main-content">
+            <div class="match-selector">
+                <h2 class="section-title">📅 Sélectionnez un Match</h2>
+                <input type="text" id="searchInput" placeholder="🔍 Rechercher un match..." style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+
+                <div id="matchList">
+                    <!-- Les matchs seront chargés ici -->
+                </div>
+            </div>
+
+            <div class="stadium-view">
+                <h2 class="section-title">🏟️ Plan du Stade</h2>
+                <div class="stadium">
+                    <div class="seating-section tribune-vip" data-section="VIP" data-price="100">
+                        Tribune VIP
+                    </div>
+                    <div class="seating-section tribune-nord" data-section="Nord" data-price="50">
+                        Tribune Nord
+                    </div>
+                    <div class="seating-section tribune-sud" data-section="Sud" data-price="50">
+                        Tribune Sud
+                    </div>
+                    <div class="seating-section tribune-est" data-section="Est" data-price="40">
+                        Tribune Est
+                    </div>
+                    <div class="seating-section tribune-ouest" data-section="Ouest" data-price="40">
+                        Tribune Ouest
+                    </div>
+                    
+                    <div class="field">
+                        <div class="center-circle">
+                            <div class="center-dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 10px; color: #666;">
+                    Cliquez sur une tribune pour sélectionner votre place
+                </p>
+            </div>
+        </div>
+
+        <div class="booking-form">
+            <h2 class="section-title">🎫 Finaliser la Réservation</h2>
+            
+            <div id="alertContainer"></div>
+            
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="customerName">Nom complet *</label>
+                    <input type="text" id="customerName" name="customerName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerEmail">Email *</label>
+                    <input type="email" id="customerEmail" name="customerEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerPhone">Téléphone *</label>
+                    <input type="tel" id="customerPhone" name="customerPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ticketQuantity">Nombre de billets</label>
+                    <select id="ticketQuantity" name="ticketQuantity">
+                        <option value="1">1 billet</option>
+                        <option value="2">2 billets</option>
+                        <option value="3">3 billets</option>
+                        <option value="4">4 billets</option>
+                        <option value="5">5 billets</option>
+                    </select>
+                </div>
+
+                <div class="price-display">
+                    <div>Prix Total: <span id="totalPrice">0</span> €</div>
+                    <div class="price-breakdown" id="priceBreakdown">
+                        <div class="price-item">
+                            <span>Match sélectionné:</span>
+                            <span id="selectedMatch">Aucun</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Tribune:</span>
+                            <span id="selectedSection">Aucune</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Nombre de billets:</span>
+                            <span id="ticketCount">1</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Prix unitaire:</span>
+                            <span id="unitPrice">0 €</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Réduction anticipée:</span>
+                            <span id="earlyDiscount">0 €</span>
+                        </div>
+                    </div>
+                </div>
+
+           <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                <div id="paypal-button-container" style="margin-top: 20px;"></div>
+            </div>
+
+
+            </form>
+
+            <div class="loading" id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>Traitement de votre réservation...</p>
+            </div>
+        </div>
+    </div>
+ 
+
+    <script src="apiService.js"> </script>
+
+    <script src="main.js">
+       
+    </script>
+</body>
+</html>
